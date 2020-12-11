@@ -1,0 +1,607 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script src="js/jquery-2.0.3.js"></script>
+    <script>
+        function Insert() {
+            $.ajax(
+                {
+                    url: "http://134.175.95.100:81/Insert.ashx",
+                    dataType: "json", //返回的数据类型,text 或者 json数据，建议为json
+                    type: "post", //传参方式，get 或post
+                    data: JSON.stringify({
+                        //id:1,   不需要，自增ID
+                        uid:"20200611002", //传过去的参数，格式为 变量名：变量值
+                        location:"图书馆", //传过去的参数，格式为 变量名：变量值
+                        temperature:29.00, //传过去的参数，格式为 变量名：变量值
+                        time:"2020-06-12 15:15:10"         //传过去的参数，格式为 变量名：变量值
+                    }),
+                    beforeSend: function (XMLHttpRequest) {
+                        $("#divloading").html("<img src='images/loading3.jpg' style='width:25px;height:25px; ' />");
+                    },
+                    success: function (data, textStatus) {
+                        $("#divloading").empty();
+                        if (data.code == "1") {
+                            alert(data.msg);
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        // alert('complete 远程调用完成，状态值：'+textStatus);
+                        $("#divloading").empty();
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        $("#divloading").empty();
+                    }//end error
+                }); //end $.ajax
+        }
+        function InsertData() {
+            $.ajax(
+                {
+                    url: "http://134.175.95.100:81/InsertData.ashx",
+                    //url: "InsertData.ashx",
+                    dataType: "json", //返回的数据类型,text 或者 json数据，建议为json
+                    type: "post", //传参方式，get 或post
+                    data: JSON.stringify({
+                        ID: 1,   //不需要，自增ID
+                        Temperature: "88.77", //传过去的参数，格式为 变量名：变量值
+                        HeartRate: "90.1", //传过去的参数，格式为 变量名：变量值
+                        SpO2: "29.00", //传过去的参数，格式为 变量名：变量值
+                        GetInfotime: "2028-06-12 15:15:10",         //传过去的参数，格式为 变量名：变量值
+                        Pitch: "11",
+                        Roll: "22",
+                        Yaw: "33",
+                        AacX: "44",
+                        AacY: "55",
+                        AacZ: "66",
+                        Longtitude: "70",
+                        Latitude: "80",
+                        State: "1",
+                    }),
+                    beforeSend: function (XMLHttpRequest) {
+                        $("#divloading").html("<img src='images/loading3.jpg' style='width:25px;height:25px; ' />");
+                    },
+                    success: function (data, textStatus) {
+                        $("#divloading").empty();
+                        if (data.code == "1") {
+                            alert(data.msg);
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        // alert('complete 远程调用完成，状态值：'+textStatus);
+                        $("#divloading").empty();
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        $("#divloading").empty();
+                    }//end error
+                }); //end $.ajax
+        }
+
+        function InsertPicture() {
+            $.ajax(
+                {
+                    //url: "http://134.175.95.100:81/InsertPicture.ashx",
+                    url: "InsertPicture.ashx",
+                    dataType: "json", //返回的数据类型,text 或者 json数据，建议为json
+                    type: "post", //传参方式，get 或post
+                    data: JSON.stringify({
+                        //ID: 1,   //不需要，自增ID
+                        //Temperature: "88.77", //传过去的参数，格式为 变量名：变量值
+                        //HeartRate: "90.1", //传过去的参数，格式为 变量名：变量值
+                        //SpO2: "29.00", //传过去的参数，格式为 变量名：变量值
+                        //GetInfotime: "2028-06-12 15:15:10"         //传过去的参数，格式为 变量名：变量值
+                    }),
+                    beforeSend: function (XMLHttpRequest) {
+                        $("#divloading").html("<img src='images/loading3.jpg' style='width:25px;height:25px; ' />");
+                    },
+                    success: function (data, textStatus) {
+                        $("#divloading").empty();
+                        if (data.code == "1") {
+                            alert(data.msg);
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        // alert('complete 远程调用完成，状态值：'+textStatus);
+                        $("#divloading").empty();
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        $("#divloading").empty();
+                    }//end error
+                }); //end $.ajax
+        }
+
+        function Delete() {
+            $.ajax(
+             {
+                 url: "http://134.175.95.100:81/Delete.ashx",
+                 dataType: "json", //返回的数据类型,text 或者 json数据，建议为json
+                 type: "get", //传参方式，get 或post
+                 data: {
+                     id: 3
+                 },
+                 beforeSend: function (XMLHttpRequest) {
+                     $("#divloading").html("<img src='images/loading3.jpg' style='width:25px;height:25px; ' />");
+                 },
+                 success: function (data, textStatus) {
+                     $("#divloading").empty();
+                     if (data.code == "1") {
+                         alert(data.msg);
+                     } else {
+                         alert(data.msg);
+                     }
+                 },
+                 complete: function (XMLHttpRequest, textStatus) {
+                     // alert('complete 远程调用完成，状态值：'+textStatus);
+                     $("#divloading").empty();
+                 },
+                 error: function (XMLHttpRequest, textStatus, errorThrown) {
+                     $("#divloading").empty();
+                 }//end error
+             }); //end $.ajax
+        }
+        function Update() {
+            $.ajax(
+             {
+                 url: "http://134.175.95.100:81/Update.ashx",
+                 dataType: "json", //返回的数据类型,text 或者 json数据，建议为json
+                 type: "post", //传参方式，get 或post
+                 data: JSON.stringify({
+                     id: 5,   
+                     location: "花江校区17教3", //传过去的参数，格式为 变量名：变量值
+                     temperature: 5.00
+                 }),
+                 beforeSend: function (XMLHttpRequest) {
+                     $("#divloading").html("<img src='images/loading3.jpg' style='width:25px;height:25px; ' />");
+                 },
+                 success: function (data, textStatus) {
+                     $("#divloading").empty();
+                     if (data.code == "1") {
+                         alert(data.msg);
+                     } else {
+                         alert(data.msg);
+                     }
+                 },
+                 complete: function (XMLHttpRequest, textStatus) {
+                     // alert('complete 远程调用完成，状态值：'+textStatus);
+                     $("#divloading").empty();
+                 },
+                 error: function (XMLHttpRequest, textStatus, errorThrown) {
+                     $("#divloading").empty();
+                 }//end error
+             }); //end $.ajax
+        }
+        function Select() {
+            $.ajax(
+              {
+                  url: "http://134.175.95.100:81/GetList.ashx",
+                  dataType: "json", //返回的数据类型,text 或者 json数据，建议为json
+                  type: "get", //传参方式，get 或post
+                  data: {
+                      uid: "20200611001" //传过去的参数，格式为 变量名：变量值
+                  },
+                  beforeSend: function (XMLHttpRequest) {
+                      $("#divloading").html("<img src='images/loading3.jpg' style='width:25px;height:25px; ' />");
+                  },
+                  success: function (data, textStatus) {
+                      $("#divloading").empty();
+                      if (data.code == "1") {
+                          var result = eval(data.result);//string -> json object  
+                          //var jsonStr = JSON.stringify(json);//json转字符串
+                          //var json2 = JSON.parse(jsonStr);//字符串转json
+                          alert(data.result[0].location);
+
+                      } else {
+                          alert(data.msg);
+                      }
+                  },
+                  complete: function (XMLHttpRequest, textStatus) {
+                      // alert('complete 远程调用完成，状态值：'+textStatus);
+                      $("#divloading").empty();
+                  },
+                  error: function (XMLHttpRequest, textStatus, errorThrown) {
+                      $("#divloading").empty();
+                  }//end error
+              }); //end $.ajax
+        }
+        function SelectBasicInfoTemperature() {
+            $.ajax(
+                {
+                    url: "http://134.175.95.100:81/SelectBasicInfoTemperature.ashx",
+                    //url: "SelectBasicInfoTemperature.ashx",
+                    dataType: "json", //返回的数据类型,text 或者 json数据，建议为json
+                    type: "get", //传参方式，get 或post
+                    data: {
+                        DeviceID: "1234567" //传过去的参数，格式为 变量名：变量值
+                    },
+                    beforeSend: function (XMLHttpRequest) {
+                        $("#divloading").html("<img src='images/loading3.jpg' style='width:25px;height:25px; ' />");
+                    },
+                    success: function (data, textStatus) {
+                        $("#divloading").empty();
+                        if (data.code == "1") {
+                            var result = eval(data.result);//string -> json object  
+                            //var jsonStr = JSON.stringify(json);//json转字符串
+                            //var json2 = JSON.parse(jsonStr);//字符串转json
+                            alert(data.result[0].Temperature);
+                            //alert(data.result);
+
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        alert('complete 远程调用完成，状态值：'+textStatus);
+                        $("#divloading").empty();
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        //alert("456789");
+                        $("#divloading").empty();
+                    }//end error
+                }); //end $.ajax
+        }
+        function SelectBasicInfoHeartRate() {
+            $.ajax(
+                {
+                    url: "http://134.175.95.100:81/SelectBasicInfoHeartRate.ashx",
+                    //url: "SelectBasicInfoHeartRate.ashx",
+                    dataType: "json", //返回的数据类型,text 或者 json数据，建议为json
+                    type: "get", //传参方式，get 或post
+                    data: {
+                        DeviceID: "1234567" //传过去的参数，格式为 变量名：变量值
+                    },
+                    beforeSend: function (XMLHttpRequest) {
+                        $("#divloading").html("<img src='images/loading3.jpg' style='width:25px;height:25px; ' />");
+                    },
+                    success: function (data, textStatus) {
+                        $("#divloading").empty();
+                        if (data.code == "1") {
+                            var result = eval(data.result);//string -> json object  
+                            //var jsonStr = JSON.stringify(json);//json转字符串
+                            //var json2 = JSON.parse(jsonStr);//字符串转json
+                            alert(data.result[0].HeartRate);
+                            //alert(data.result);
+
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        //alert('complete 远程调用完成，状态值：' + textStatus);
+                        $("#divloading").empty();
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        //alert("456789");
+                        $("#divloading").empty();
+                    }//end error
+                }); //end $.ajax
+        }
+        function SelectBasicInfoSpO2() {
+            $.ajax(
+                {
+                    url: "http://134.175.95.100:81/SelectBasicInfoSpO2.ashx",
+                    //url: "SelectBasicInfoSpO2.ashx",
+                    dataType: "json", //返回的数据类型,text 或者 json数据，建议为json
+                    type: "get", //传参方式，get 或post
+                    data: {
+                        DeviceID: "1234567" //传过去的参数，格式为 变量名：变量值
+                    },
+                    beforeSend: function (XMLHttpRequest) {
+                        $("#divloading").html("<img src='images/loading3.jpg' style='width:25px;height:25px; ' />");
+                    },
+                    success: function (data, textStatus) {
+                        $("#divloading").empty();
+                        if (data.code == "1") {
+                            var result = eval(data.result);//string -> json object  
+                            //var jsonStr = JSON.stringify(json);//json转字符串
+                            //var json2 = JSON.parse(jsonStr);//字符串转json
+                            alert(data.result[0].SpO2);
+                            //alert(data.result);
+
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        //alert('complete 远程调用完成，状态值：' + textStatus);
+                        $("#divloading").empty();
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        //alert("456789");
+                        $("#divloading").empty();
+                    }//end error
+                }); //end $.ajax
+        }
+        function SelectIsFallLocation() {
+            $.ajax(
+                {
+                    url: "http://134.175.95.100:81/SelectIsFallLocation.ashx",
+                    //url: "SelectIsFallLocation.ashx",
+                    dataType: "json", //返回的数据类型,text 或者 json数据，建议为json
+                    type: "get", //传参方式，get 或post
+                    data: {
+                        DeviceID: "1234567" //传过去的参数，格式为 变量名：变量值
+                    },
+                    beforeSend: function (XMLHttpRequest) {
+                        $("#divloading").html("<img src='images/loading3.jpg' style='width:25px;height:25px; ' />");
+                    },
+                    success: function (data, textStatus) {
+                        $("#divloading").empty();
+                        if (data.code == "1") {
+                            var result = eval(data.result);//string -> json object  
+                            //var jsonStr = JSON.stringify(json);//json转字符串
+                            //var json2 = JSON.parse(jsonStr);//字符串转json
+                            alert(data.result[0].Longtitude);
+                            //alert(data.result);
+
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        //alert('complete 远程调用完成，状态值：' + textStatus);
+                        $("#divloading").empty();
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        //alert("456789");
+                        $("#divloading").empty();
+                    }//end error
+                }); //end $.ajax
+        }
+
+        function AnalyzeEmotion() {
+            $.ajax(
+                {
+                    //url: "https://api-cn.faceplusplus.com/facepp/v3/face/analyze",
+                    url: "https://api-cn.faceplusplus.com/facepp/v3/detect",
+                    //url: "SelectIsFallLocation.ashx",
+                    dataType: "json", //返回的数据类型,text 或者 json数据，建议为json
+                    type: "post", //传参方式，get 或post
+                    data: {
+                        api_key: "JOjwHIfsDGiJddKzdq2Fgbc4xmrcQrFD", //传过去的参数，格式为 变量名：变量值
+                        api_secret: "PMJ-qFt4anrI5AZgv7waPjaBhaN1ejJw",
+                        image_url:"https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2513145336,3280965481&fm=26&gp=0.jpg",
+                        return_attributes: "emotion"
+                    },
+                    beforeSend: function (XMLHttpRequest) {
+                        $("#divloading").html("<img src='images/loading3.jpg' style='width:25px;height:25px; ' />");
+                    },
+                    success: function (data, textStatus) {
+                        $("#divloading").empty();
+                        if (data.code == "1") {
+                            var result = eval(data.result);//string -> json object  
+                            //var jsonStr = JSON.stringify(json);//json转字符串
+                            //var json2 = JSON.parse(jsonStr);//字符串转json
+                            //alert(data.result[0].Longtitude);
+                            //alert(data.result);
+
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        //alert('complete 远程调用完成，状态值：' + textStatus);
+                        $("#divloading").empty();
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        //alert("456789");
+                        $("#divloading").empty();
+                    }//end error
+                }); //end $.ajax
+        }
+
+        function InsertPicFile() {
+            $.ajax(
+                {
+                    //url: "http://134.175.95.100:81/InsertPicture.ashx",
+                    url: "InsertPicture.ashx",
+                    //dataType: "json", //返回的数据类型,text 或者 json数据，建议为json
+                    dataType:"json",
+                    type: "post", //传参方式，get 或post
+                    data:{
+                        //DeviceID: "123456", //传过去的参数，格式为 变量名：变量值
+                        //Lord: "1234567890.jpg",
+                        //EmotionState: "happy",
+                        //PicFile:"skflja"
+                    },
+                    beforeSend: function (XMLHttpRequest) {
+                        $("#divloading").html("<img src='images/loading3.jpg' style='width:25px;height:25px; ' />");
+                    },
+                    success: function (data, textStatus) {
+                        $("#divloading").empty();
+                        if (data.code == "1") {
+                            //var result = eval(data.msg);//string -> json object
+                            //var jsonStr = JSON.stringify(json);//json转字符串
+                            //var json2 = JSON.parse(jsonStr);//字符串转json
+                            //alert(data.result[0].PicFile);
+                            alert(data.msg);
+                        } else {
+                            alert(data.msg+"2");
+                        }
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        alert('complete 远程调用完成，状态值：' + textStatus);
+                        $("#divloading").empty();
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        alert("error1");
+                        $("#divloading").empty();
+                    }//end error
+                }); //end $.ajax
+        }
+        function SelectEmotion() {
+            $.ajax(
+                {
+                    //url: "http://134.175.95.100:81/SelectEmotion.ashx",
+                    url: "SelectEmotion.ashx",
+                    dataType: "json", //返回的数据类型,text 或者 json数据，建议为json
+                    type: "get", //传参方式，get 或post
+                    data: {
+                         
+                    },
+                    beforeSend: function (XMLHttpRequest) {
+                        $("#divloading").html("<img src='images/loading3.jpg' style='width:25px;height:25px; ' />");
+                    },
+                    success: function (data, textStatus) {
+                        $("#divloading").empty();
+                        if (data.code == "1") {
+                            var result = eval(data.result);//string -> json object  
+                            //var jsonStr = JSON.stringify(json);//json转字符串
+                            //var json2 = JSON.parse(jsonStr);//字符串转json
+                            alert("10")
+                            alert(data.result[0].ID);
+                            //alert(data.result);
+
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        //alert('complete 远程调用完成，状态值：' + textStatus);
+                        $("#divloading").empty();
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        //alert("456789");
+                        $("#divloading").empty();
+                    }//end error
+                }); //end $.ajax
+        }function SelectEmotion() {
+            $.ajax(
+                {
+                    //url: "http://134.175.95.100:81/SelectEmotion.ashx",
+                    url: "SelectEmotion.ashx",
+                    dataType: "json", //返回的数据类型,text 或者 json数据，建议为json
+                    type: "get", //传参方式，get 或post
+                    data: {
+                        DeviceID: "1234567" //传过去的参数，格式为 变量名：变量值
+                    },
+                    beforeSend: function (XMLHttpRequest) {
+                        $("#divloading").html("<img src='images/loading3.jpg' style='width:25px;height:25px; ' />");
+                    },
+                    success: function (data, textStatus) {
+                        $("#divloading").empty();
+                        if (data.code == "1") {
+                            var result = eval(data.result);//string -> json object  
+                            //var jsonStr = JSON.stringify(json);//json转字符串
+                            //var json2 = JSON.parse(jsonStr);//字符串转json
+                            alert("10")
+                            alert(data.result[0].ID);
+                            //alert(data.result);
+
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        //alert('complete 远程调用完成，状态值：' + textStatus);
+                        $("#divloading").empty();
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        //alert("456789");
+                        $("#divloading").empty();
+                    }//end error
+                }); //end $.ajax
+        }
+        function SelectUserInfo() {
+            $.ajax(
+                {
+                    //url: "http://134.175.95.100:81/SelectUserInfo.ashx",
+                    url: "SelectUserInfo.ashx",
+                    dataType: "json", //返回的数据类型,text 或者 json数据，建议为json
+                    type: "get", //传参方式，get 或post
+                    data: {
+                        UserID: "1" //传过去的参数，格式为 变量名：变量值
+                    },
+                    beforeSend: function (XMLHttpRequest) {
+                        $("#divloading").html("<img src='images/loading3.jpg' style='width:25px;height:25px; ' />");
+                    },
+                    success: function (data, textStatus) {
+                        $("#divloading").empty();
+                        if (data.code == "1") {
+                            var result = eval(data.result);//string -> json object  
+                            //var jsonStr = JSON.stringify(json);//json转字符串
+                            //var json2 = JSON.parse(jsonStr);//字符串转json
+                            alert("10")
+                            alert(data.result[0].UserName);
+                            //alert(data.result);
+
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        //alert('complete 远程调用完成，状态值：' + textStatus);
+                        $("#divloading").empty();
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        //alert("456789");
+                        $("#divloading").empty();
+                    }//end error
+                }); //end $.ajax
+        }
+        function InsertUserInfo() {
+            $.ajax(
+                {
+                    //url: "http://134.175.95.100:81/InsertUserInfo.ashx",
+                    url: "InsertUserInfo.ashx",
+                    dataType: "json", //返回的数据类型,text 或者 json数据，建议为json
+                    type: "post", //传参方式，get 或post
+                    data: JSON.stringify({
+                        UserID: "3", //传过去的参数，格式为 变量名：变量值
+                        Password: "123456",
+                        UserName:"AAA"
+                    }),
+                    beforeSend: function (XMLHttpRequest) {
+                        $("#divloading").html("<img src='images/loading3.jpg' style='width:25px;height:25px; ' />");
+                    },
+                    success: function (data, textStatus) {
+                        $("#divloading").empty();
+                        if (data.code == "1") {
+                            var result = eval(data.result);//string -> json object  
+                            //var jsonStr = JSON.stringify(json);//json转字符串
+                            //var json2 = JSON.parse(jsonStr);//字符串转json
+                            alert("10")
+
+                        } else {
+                            alert(data.msg);
+                        }
+                    },
+                    complete: function (XMLHttpRequest, textStatus) {
+                        //alert('complete 远程调用完成，状态值：' + textStatus);
+                        $("#divloading").empty();
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        //alert("456789");
+                        $("#divloading").empty();
+                    }//end error
+                }); //end $.ajax
+        }
+    </script>
+</head>
+<body>
+    <div id="divloading" style="text-align: center;margin-top:1px"></div>
+    <input id="Button1" type="button" value="Insert" onclick="Insert();" />
+    <input id="Button1" type="button" value="InsertData" onclick="InsertData();" />
+    <input id="Button1" type="button" value="Delete" onclick="Delete();" />
+    <input id="Button1" type="button" value="Update" onclick="Update();" />
+    <input id="Button1" type="button" value="Select" onclick="Select();" />
+    <input id="Button1" type="button" value="SelectTemperature" onclick="SelectBasicInfoTemperature();" />
+    <input id="Button1" type="button" value="SelectHeartRate" onclick="SelectBasicInfoHeartRate();" />
+    <input id="Button1" type="button" value="SelectSpO2" onclick="SelectBasicInfoSpO2();" />
+    <input id="Button1" type="button" value="SelectLocation" onclick="SelectIsFallLocation();" />
+    <input id="Button1" type="button" value="AnalyzeEmotion" onclick="AnalyzeEmotion();" />
+    <input id="Button1" type="button" value="InsertPicture" onclick="InsertPicture();" />
+    <input id="Button1" type="button" value="SelectEmotion" onclick="SelectEmotion();" />
+    <input id="Button1" type="button" value="SelectUserInfo" onclick="SelectUserInfo();" />
+    <input id="Button1" type="button" value="InsertUserInfo" onclick="InsertUserInfo();" />
+
+
+</body>
+</html>
